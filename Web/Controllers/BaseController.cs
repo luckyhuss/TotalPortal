@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Utils;
 
 namespace Web.Controllers
 {
@@ -16,6 +17,13 @@ namespace Web.Controllers
         {
             ConnectionStringIdentity = ConfigurationManager.ConnectionStrings["IdentityContext"].ToString();
             ConnectionStringEntity = ConfigurationManager.ConnectionStrings["TotalDbContext"].ToString();
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            string userName = filterContext.HttpContext.User.Identity == null ? string.Empty : filterContext.HttpContext.User.Identity.Name;
+            filterContext.ExceptionHandled = true;
+            Log.Error(string.Format("USER:[{0}] {1}", userName, filterContext.Exception.Message), filterContext.Exception);
         }
     }
 }

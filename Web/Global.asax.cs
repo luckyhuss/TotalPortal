@@ -24,11 +24,10 @@ namespace Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-
         protected void Application_Error()
         {
             var ex = Server.GetLastError();
-            Log.Error(ex.Message + " " + ex.StackTrace);
+            Log.Error(ex.Message, ex);
         }
     }
 }
