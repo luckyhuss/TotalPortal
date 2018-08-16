@@ -65,7 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Context\Partner.cs">
+    <Compile Include="Context\Permission.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Role.cs">

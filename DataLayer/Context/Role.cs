@@ -18,12 +18,17 @@ namespace DataLayer.Context
         public Role()
         {
             this.Users = new HashSet<User>();
+            this.Permissions = new HashSet<Permission>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public bool IsSysAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

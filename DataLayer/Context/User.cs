@@ -34,6 +34,9 @@ namespace DataLayer.Context
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public Nullable<System.DateTime> LastModified { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserClaim> UserClaims { get; set; }
