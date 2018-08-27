@@ -109,4 +109,52 @@ namespace Web.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    //********** RBAC View Models **************
+    public class RoleViewModel
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Role Name")]
+        public string Name { get; set; }
+
+
+        [Required]
+        [StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Role Description")]
+        public string RoleDescription { get; set; }
+
+        [Required]
+        [Display(Name = "Is System Administrator")]
+        public bool IsSysAdmin { get; set; }
+    }
+
+    public class UserViewModel
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(15, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "First name")]
+        public string Firstname { get; set; }
+
+        [Required]
+        [StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Last name")]
+        public string Lastname { get; set; }
+
+
+    }
 }
